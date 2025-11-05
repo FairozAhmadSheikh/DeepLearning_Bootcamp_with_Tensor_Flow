@@ -209,3 +209,19 @@ def calculate_results(y_true, y_pred):
                   "recall": model_recall,
                   "f1": model_f1}
   return model_results
+
+from sklearn.metrics import accuracy_score,precision_recall_fscore_support
+
+
+def calculate_results(y_true,y_pred):
+  model_accuracy=accuracy_score(y_true=y_true,y_pred=y_pred)
+  model_precission,model_recall,model_f1,_=precision_recall_fscore_support(y_true=y_true,y_pred=y_pred,average='weighted')
+
+  model_results={
+     "accuracy":model_accuracy,
+     "precsion":model_precission,
+     "recall":model_recall,
+     'f1_score':model_f1
+  }
+  return model_results
+     
